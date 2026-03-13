@@ -17,14 +17,19 @@ import datetime
 st.set_page_config(page_title="Money Tree Bank | Fraud Analytics", layout="wide", page_icon="🌳")
 
 # --- CUSTOM CSS ---
+# --- CUSTOM CSS ---
 st.markdown("""
     <style>
     .main { background-color: #f5f7f9; }
     .stMetric { background-color: #ffffff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     h1, h2, h3 { color: #1e3d59; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .sidebar .sidebar-content { background-image: linear-gradient(#1e3d59, #2b506e); color: white; }
+    /* Note: Streamlit class names can change, these are common targets for styling */
+    [data-testid="stSidebar"] {
+        background-color: #1e3d59;
+        color: white;
+    }
     </style>
-    """, unsafe_all_projects=True)
+    """, unsafe_allow_html=True) # <--- THIS LINE WAS CORRECTED
 
 # --- DATA GENERATION ---
 @st.cache_data
